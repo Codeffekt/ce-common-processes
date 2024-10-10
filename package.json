@@ -7,6 +7,8 @@
     "start_dev": "mkdirp dist ; cp -f .env dist/.env.config ; CONTEXT_ROOT=$(pwd)/data/ ts-node-dev src/server.ts",
     "start_prod": "ENV_SCRIPT=.env node dist/server/server.js",
     "build_prod": "npm-run-all clean_dist build_server",
+    "watch": "tsc -p ./tsconfig.json -w",
+    "start": "ENV_SCRIPT=.env.scripts node dist/server/server.js",
     "build_server": "npm-run-all clean_dist_server compile_dist_server",
     "clean_dist_server": "shx rm -rf ./dist/server",
     "compile_dist_server": "mkdirp dist/server && tsc -p ./tsconfig.json",
