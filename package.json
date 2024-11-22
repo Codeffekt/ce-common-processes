@@ -4,8 +4,8 @@
   "description": "Backend tasks to manage forms",
   "main": "index.js",
   "scripts": {
-    "start_dev": "mkdirp dist ; cp -f .env dist/.env.config ; CONTEXT_ROOT=$(pwd)/data/ ts-node-dev src/server.ts",
-    "start_prod": "ENV_SCRIPT=.env node dist/server/server.js",
+    "start_dev": "mkdirp dist ; cp -f .env.scripts dist/.env.config ; CONTEXT_ROOT=$(pwd)/data/ ts-node-dev src/server.ts",
+    "start_prod": "ENV_SCRIPT=.env.scripts node dist/server/server.js",
     "build_prod": "npm-run-all clean_dist build_server",
     "watch": "tsc -p ./tsconfig.json -w",
     "start": "ENV_SCRIPT=.env.scripts node dist/server/server.js",
@@ -18,9 +18,9 @@
   "author": "codeffekt",
   "license": "Apache-2.0",
   "dependencies": {
-    "@codeffekt/ce-core-data": "^1.2.0",
+    "@codeffekt/ce-core-data": "^1.2.2",
     "@codeffekt/ce-events-data": "^1.1.0",
-    "@codeffekt/ce-node-express": "^1.12.0",
+    "@codeffekt/ce-node-express": "^1.13.0",
     "@codeffekt/ce-node-worker": "^1.0.0",
     "dotenv": "^16.4.5"
   },

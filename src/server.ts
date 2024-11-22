@@ -1,5 +1,6 @@
 import * as dotenv from "dotenv";
-import { CeService, ProcessingApplication, Task } from "@codeffekt/ce-node-express";
+import { CeService, MessagesApplication, MessagesServer } from "@codeffekt/ce-node-express";
+import { EventsRootFactory } from "./processing/events/EventsRootFactory";
 
 async function bootstrap() {
 
@@ -8,10 +9,11 @@ async function bootstrap() {
         dotenv.config({ path: envScript });
     }
 
-    CeService.get(ProcessingApplication).runAppFromEnv({
-        task: new Task("../dist/server/processing/task"),
-        workerModulePath: "./worker/ce-node-worker.cjs",
-    });
+    await CeService.get(MessagesApplication).runAppFromEnv();
+
+    CeService.get(MessagesServer).setFormsRootEventListener(
+        CeService.get(EventsRootFactory)
+    );
 }
 
 bootstrap();

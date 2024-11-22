@@ -1,5 +1,5 @@
 import { FormQuery } from "@codeffekt/ce-core-data";
-import { Inject, RemoteApiService } from "@codeffekt/ce-node-express";
+import { FormsService, Inject } from "@codeffekt/ce-node-express";
 import { FormsOperation } from "./FormsOperation";
 
 const CHUNCK_SIZE = 10;
@@ -12,8 +12,8 @@ interface QueryPagination {
 
 export class FormsOperator {
 
-    @Inject(RemoteApiService)
-    private formsService: RemoteApiService;
+    @Inject(FormsService)
+    private formsService: FormsService;
 
     private constructor(
         private query: FormQuery
@@ -46,7 +46,7 @@ export class FormsOperator {
         operation: FormsOperation,
         pagination: QueryPagination
     ): Promise<QueryPagination> {
-        const res = await this.formsService.getFormsQueryGeneric({
+        const res = await this.formsService.getFormsQuery({
             ...this.query,
             ...pagination,
         });
