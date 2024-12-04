@@ -20,7 +20,7 @@
   "dependencies": {
     "@codeffekt/ce-core-data": "^1.2.3",
     "@codeffekt/ce-events-data": "^1.1.0",
-    "@codeffekt/ce-node-express": "^1.13.5",
+    "@codeffekt/ce-node-express": "^1.13.6",
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
