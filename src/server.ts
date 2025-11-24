@@ -1,6 +1,10 @@
 import * as dotenv from "dotenv";
-import { CeService, MessagesApplication, MessagesServer } from "@codeffekt/ce-node-express";
-import { EventsRootFactory } from "./processing/events/EventsRootFactory";
+import {
+    CeService, EventsRootFactory,
+    FormsMessagesQueues,
+    MessagesApplication, MessagesServer
+} from "@codeffekt/ce-node-express";
+import { FormEvent } from "@codeffekt/ce-core-data";
 
 async function bootstrap() {
 
@@ -11,7 +15,8 @@ async function bootstrap() {
 
     await CeService.get(MessagesApplication).runAppFromEnv();
 
-    CeService.get(MessagesServer).setFormsRootEventListener(
+    CeService.get(MessagesServer).setMessageListener<FormEvent>(
+        FormsMessagesQueues.FORMS_ROOT,
         CeService.get(EventsRootFactory)
     );
 }

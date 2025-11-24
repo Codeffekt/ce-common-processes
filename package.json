@@ -18,8 +18,8 @@
   "author": "codeffekt",
   "license": "Apache-2.0",
   "dependencies": {
-    "@codeffekt/ce-core-data": "^1.2.3",
-    "@codeffekt/ce-node-express": "^1.13.6",
+    "@codeffekt/ce-core-data": "^1.2.9",
+    "@codeffekt/ce-node-express": "^1.14.6",
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
